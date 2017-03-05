@@ -4,7 +4,19 @@ Special Module help you manage Assets in `codeHive 3 Framework`.
 
 ## Installation : 
 you can simply install it from hive command line as :
+
 `hive install Helper.Asset`
+
+
+Asset helper need Special Directives to defined in index.html file allowing events to dispatched correctly in position.
+```html
+<Asset load="defaults"></Asset>
+<Asset load="style"></Asset>
+<Asset load="definer"></Asset>
+<Asset load="script"></Asset>
+<Asset load="head"></Asset>
+```
+
 
 ## Usage : 
 initialize Asset Helper Module
@@ -32,6 +44,8 @@ define script or style
 $asset->script("script.js@Container.Module");
 $asset->style("style.css@Container.Module");
 ```
+
+
 
 ## License
 Copyright (c) 2013 - 2016, Purecis, Inc. All rights reserved.
