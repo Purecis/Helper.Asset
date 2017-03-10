@@ -1,4 +1,3 @@
-
 # Helper.Asset Module
 Special Module help you manage Assets in `codeHive 3 Framework`.
 
@@ -15,6 +14,12 @@ Asset helper need Special Directives to defined in index.html file allowing even
 <Asset load="definer"></Asset>
 <Asset load="script"></Asset>
 <Asset load="head"></Asset>
+```
+
+or one loader to load all
+
+```html
+<asset load="defaults,style,definer,script,head"></asset>
 ```
 
 
@@ -48,6 +53,6 @@ $asset->style("style.css@Container.Module");
 
 
 ## License
-Copyright (c) 2013 - 2016, Purecis, Inc. All rights reserved.
+Copyright (c) 2013 - 2017, Purecis, Inc. All rights reserved.
 
 This Module is part of codeHive framework and its open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)

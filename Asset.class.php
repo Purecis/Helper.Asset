@@ -19,6 +19,7 @@ use \App\System\Request;
 use \App\System\Str;
 use \App\System\Scope;
 use \App\System\Loader;
+use \App\System\FileSystem;
 
 class Asset extends Module{
 
@@ -133,7 +134,7 @@ class Asset extends Module{
         $request = new Request;
 
         // check if not external link then
-        if(!Str::contains($src, '://')) {
+        if(!Str::contains($src, '//')) {
             $src = Loader::getDir($folder . "/" . $src);
             $src = $request->base . $src;
         }

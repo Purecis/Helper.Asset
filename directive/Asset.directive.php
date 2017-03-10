@@ -4,6 +4,7 @@ namespace App\Helper\Asset\Directive;
 use App\System\Directive;
 use App\System\Response;
 use App\System\Event;
+use App\System\Str;
 use App\Helper\Asset as AssetHelper;
 
 class Asset extends Directive
@@ -16,19 +17,23 @@ class Asset extends Directive
     }
     
     public function handle()
-    {  
+    {
         $evt = new Event("AssetsManagment");
 
+        $events = explode(',', $this->directive->attr->load);
         $cache = '';
-        if($this->directive->attr->load == 'definer' && $evt->count($this->directive->attr->load)){
-            $cache .= "\n\t<script type='text/javascript'>\n\t";
-        }
 
-        $cache .= implode("\n\t", $evt->trigger($this->directive->attr->load));
+        foreach($events as $event){
+            $temp = "";
+            $temp .= implode("\n\t", $evt->trigger($event));
 
-        if($this->directive->attr->load == 'definer' && $evt->count($this->directive->attr->load)){
-            $cache .= "\n\t</script>";
+            if($event == 'definer' && $evt->count($event)){
+                $cache .= "\n\t<script type='text/javascript'>\n\t" . $temp . "\n\t</script>";
+            }else{
+                $cache .= $temp;
+            }
         }
+        
         return $cache;
     }
 }
